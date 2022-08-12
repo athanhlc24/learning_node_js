@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <%- include("css.ejs") %></head>
+<body>
+<%- include("header.ejs") %>
+<%- include("nav.ejs") %>
+<section class="section main">
+    <div class="container">
+        <div class="row">
+            <%- include("aside.ejs") %>
+            <article class="content col-md-8">
+                Danh sách lớp học
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Name</th>
+                        <th>Room</th>
+                        <th></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <% for ( var i  = 0 ;i< studentList.length;i++){%>
+                        <tr>
+                            <td> <%= i+1%></td>
+                            <td> <%= studentList[i].name %></td>
+                            <td> <%= studentList[i].room %></td>
+                            <td><a href="/classes-detail?cid=<%= studentList[i].cid %>">Chi tiết</a></td>
+                        </tr>
+                    <%}%>
+                    </tbody>
+                </table>
+
+
+
+
+
+            </article>
+        </div>
+    </div>
+</section>
+<%- include("footer.ejs") %>
+</body>
+</html>
